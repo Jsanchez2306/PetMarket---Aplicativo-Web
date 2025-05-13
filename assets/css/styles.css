@@ -1,6 +1,6 @@
 body {
     display: flex;
-    background-color: #e9e9e9;
+    background-color: #A8CEE8;
     flex-direction: column;
     overflow-x: hidden;
     min-height: 100%;
@@ -9,16 +9,15 @@ body {
 }
 
 .logo {
-    width: 170px;
-    height: 50px;
+    width: 250px;
+    height: 55px;
     margin-left: 20px;
     margin-bottom: 3px;
     margin-right: 20px
 }
 
 header {
-    background: #f07ca1;
-    background: linear-gradient(90deg, #f07ca1ff 25%, #56062bff 75%);
+    background-color: #334C75;
     width: 100vw;
     font-weight: 600;
     margin: 0;
@@ -30,11 +29,15 @@ header {
     color: #fff
 }
 
+img {
+    object-fit: cover;
+}
+
 .btn-login,
 .btn-register {
     color: #fff;
-    border-color: #f07ca1;
-    background-color: #f07ca1;
+    border-color: #000e05;
+    background-color: #5F99D2;
     padding: .4rem;
     border-radius: 5px;
     margin-right: 15px;
@@ -45,9 +48,8 @@ header {
 
 .btn-login:hover,
 .btn-register:hover {
-    background-color: #d00557;
-    color: #fff;
-    border-color: #f07ca1
+    color: rgb(148, 223, 148);
+    border-color: #7cf0c0
 }
 
 @media (max-width: 992px) {
@@ -59,25 +61,25 @@ header {
     .navbar .dropdown-menu,
     .navbar .dropdown-item {
         margin-top: 15px;
-        background-color: #56062b;
-        border: 1px solid #56062b;
-        color: #fff
+        background-color: #A8CEE8;
+        border: 1px solid #06563b;
+        color: #080000
     }
 
     .navbar .btn-login:hover,
     .navbar .btn-register:hover,
     .navbar .btn-admin:hover,
     .navbar .btn-primary:hover {
-        background-color: #d00557;
-        border: 1px solid #56062b;
-        color: #fff
+        background-color: #05d093;
+        border: 1px solid #06564f;
+        color: #0a0101
     }
 }
 
 .btn-admin {
     color: #fff;
-    border-color: #f07ca1;
-    background-color: #f07ca1;
+    border-color: #93f07c;
+    background-color: #5F99D2;
     padding: .4rem;
     border-radius: 5px;
     margin-right: 15px;
@@ -86,21 +88,20 @@ header {
 }
 
 .btn-admin:hover {
-    background-color: #d00557;
-    color: #fff;
-    border-color: #f07ca1
+    border-color: #000e05;
+    background-color: #5fd2b5;
 }
 
 .btn-admin:active,
 .btn-admin:focus,
 .btn-admin.dropdown-toggle:focus {
-    background-color: #d00557;
+    background-color: #5F99D2;
     color: #fff;
-    border-color: #f07ca1
+    border-color: #86f07c
 }
 
 .dropdown-menu {
-    background-color: #f07ca1
+    background-color: #5F99D2;
 }
 
 .dropdown-item {
@@ -109,23 +110,27 @@ header {
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-    background-color: #d00557;
+    background-color: #05d08c;
     color: #fff
 }
 
 .btn-primary {
-    background-color: #f07ca1;
-    border-color: #f07ca1
+    background-color: #5F99D2;
+    border-color: #7cf0dd
 }
 
 .btn-primary:hover {
-    background-color: #d00557;
-    border-color: #f07ca1
+    background-color: #05d07b;
+    border-color: #9df07c
 }
 
 .custom-modal {
-    background: #56062bff;
-    color: #fff
+    background-color: #A8CEE8;
+    color: black
+}
+
+.custom-modal label{
+    color: black;
 }
 
 .custom-modal .modal-header {
@@ -137,12 +142,12 @@ header {
 }
 
 .custom-modal .btn-primary {
-    background-color: #f07ca1;
-    border-color: #f07ca1
+    background-color: #334C75;
+    border-color: #7cf09f
 }
 
 .custom-modal .btn-primary:hover {
-    background-color: #d00557
+    background-color: #05d05a;
 }
 
 main {
@@ -154,7 +159,7 @@ main {
 .titulo3,
 .titulo4,
 .titulo5 {
-    background-color: #56062b;
+    background-color: #334C75;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
@@ -165,8 +170,9 @@ main {
 }
 
 .bienvenida {
-    background-color: #56062b;
+    background-color: #334C75;
     color: #fff;
+    border-radius: 10px;
     padding: 1rem 0;
     text-align: center;
     margin: 0;
@@ -239,8 +245,8 @@ iframe {
 }
 
 .accordion-item {
-    background-color: #f07ca1;
-    border: 1px solid #f07ca1
+    background-color: #7cf0cd;
+    border: 1px solid #089caf
 }
 
 .accordion-button:not(.collapsed) {
@@ -256,7 +262,7 @@ iframe {
 }
 
 .accordion-collapse {
-    border-top: 1px solid #f07ca1
+    border-top: 1px solid #7cf0dd
 }
 
 .table-custom {
@@ -287,7 +293,7 @@ iframe {
 }
 
 .table-custom tbody tr:hover {
-    background-color: #d00557
+    background-color: #05d071
 }
 
 .table-custom th {
@@ -297,14 +303,15 @@ iframe {
 .tarjetaClientes,
 .tarjetaProductos,
 .tarjetaFacturas {
-    background-color: #56062b;
+    background-color: #334C75;
     color: #fff;
-    border: 1px solid #f07ca1;
+    border: 1px solid #7cf0c4;
     border-radius: 5px
 }
 
+
 footer {
-    background: #56062b;
+    background-color: #334C75;
     color: #fff;
     width: 100vw;
     margin: 0;
