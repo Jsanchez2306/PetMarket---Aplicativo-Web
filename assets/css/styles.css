@@ -29,9 +29,7 @@ header {
     color: #fff
 }
 
-img {
-    object-fit: cover;
-}
+
 
 .btn-login,
 .btn-register {
