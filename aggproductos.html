@@ -168,22 +168,26 @@
                 </div>
             </div>
         </div>
+
+
+
         <div class="table-responsive">
-            <table class="table-custom" id="tablaProducto">
-                <thead>
+            <table class="table table-bordered table-striped align-middle">
+                <thead class="table-info text-center">
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nombre del Producto</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Stock</th>
-                        <th scope="col">Acciones</th>
+                        <th>#</th>
+                        <th>Título</th>
+                        <th>Descripción</th>
+                        <th>Imagen (URL)</th>
+                        <th>Precio unidad</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                </tbody>
+                <tbody id="tablaProductos"></tbody>
             </table>
         </div>
+
     </main>
     <footer>
         <div class="container p-4 pb-0">
@@ -227,6 +231,7 @@
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
         defer></script>
     <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/productosComida.js"></script>
 </body>
 
 </html>
