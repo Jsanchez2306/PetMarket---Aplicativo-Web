@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let productos = [
         {
             imagen: "assets/Imagenes/juguete_para_gato_catnip.webp",
-            titulo: "Collar Reflectante",
+            titulo: "Alimentos para tu mascota",
             descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
             precio: 15000,
             stock: 7,
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             imagen: "assets/Imagenes/pedigree.webp",
-            titulo: "Collar Reflectante",
+            titulo: "Alimentos para tu mascota",
             descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
             precio: 15000,
             stock: 7,
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             imagen: "assets/Imagenes/alimento_de_mascotas_delivey.webp",
-            titulo: "Collar Reflectante",
+            titulo: "Alimentos para tu mascota",
             descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
             precio: 15000,
             stock: 7,
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ,
         {
             imagen: "assets/Imagenes/promocion_comida_pedigree.webp",
-            titulo: "Collar Reflectante",
+            titulo: "Alimentos para tu mascota",
             descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
             precio: 15000,
             stock: 7,
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             imagen: "assets/Imagenes/pedigree.webp",
-            titulo: "Collar Reflectante",
+            titulo: "Alimentos para tu mascota",
             descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
             precio: 15000,
             stock: 7,
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             imagen: "assets/Imagenes/hoodie_para_mascotas_wawaw.webp",
-            titulo: "Collar Reflectante",
+            titulo: "Alimentos para tu mascota",
             descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
             precio: 15000,
             stock: 7,
@@ -129,15 +129,20 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = document.createElement("div");
             card.className = "col-md-4 mb-4";
             card.innerHTML = `
-                <div class="card h-100 shadow">
-                    <img src="${producto.imagen}" class="mt-2" alt="${producto.titulo}">
-                    <div class="card-body">
-                        <h5 class="card-title">${producto.titulo}</h5>
-                        <p class="card-text">${producto.descripcion}</p>
-                        <p class="card-text"> Precio: $${producto.precio}</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
-                    </div>
-                </div>
+               <div class="card position-relative">
+                            
+                            <img src="${producto.imagen}" class="card-img-top"
+                                alt="Juguete para gato con catnip Bird-ee y Turtl-ee"
+                                title="Juguete para gato con catnip Bird-ee y Turtl-ee" loading="lazy">
+                            <div class="card-body text-center">
+                                <h5 class="card-title" title="">${producto.titulo}</h5>
+                                <p class="card-text">
+                                    <span class="text-muted text-decoration-line-through fw-bold">$12.071 COP</span>
+                                    <span class="text-danger fw-bold ms-2">$${producto.precio}  COP</span>
+                                </p>
+                                <a href="#" class="btn btn-primary">Comprar</a>
+                            </div>
+                        </div>
             `;
             contenedor.appendChild(card);
         });
@@ -152,15 +157,20 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = document.createElement("div");
             card.className = "col-md-4 mb-4";
             card.innerHTML = `
-                <div class="card h-100 shadow">
-                    <img src="${juguete.imagen}" class="mt-2" alt="${juguete.titulo}">
-                    <div class="card-body">
-                        <h5 class="card-title">${juguete.titulo}</h5>
-                        <p class="card-text">${juguete.descripcion}</p>
-                        <p class="card-text"> Precio: $${juguete.precio}</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
-                    </div>
-                </div>
+                <div class="card position-relative">
+                           
+                            <img src="${juguete.imagen}" class="card-img-top"
+                                alt="Juguete para gato con catnip Bird-ee y Turtl-ee"
+                                title="Juguete para gato con catnip Bird-ee y Turtl-ee" loading="lazy">
+                            <div class="card-body text-center">
+                                <h5 class="card-title" title="">${juguete.titulo}</h5>
+                                <p class="card-text">
+                                    <span class="text-muted text-decoration-line-through fw-bold">$12.071 COP</span>
+                                    <span class="text-danger fw-bold ms-2">$${juguete.precio}  COP</span>
+                                </p>
+                                <a href="#" class="btn btn-primary">Comprar</a>
+                            </div>
+                        </div>
             `;
             contenedorJuguetes.appendChild(card);
         });
