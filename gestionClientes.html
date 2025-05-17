@@ -100,6 +100,26 @@
         </div>
 
     </main>
+
+
+    <div class="modal fade" id="modalEditarCliente" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form id="form-editar-cliente" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalEditarLabel">Editar Cliente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <input type="email" id="edit-correo" class="form-control mb-2" placeholder="Nuevo correo" required>
+        <input type="password" id="edit-contrasena" class="form-control mb-2" placeholder="Nueva contraseña" required>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
     <footer>
         <div class="container p-4 pb-0">
             <section class="mb-4">

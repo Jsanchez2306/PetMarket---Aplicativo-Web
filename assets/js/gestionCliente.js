@@ -8,7 +8,7 @@ let usuarios = [
 
 let cantidadClientes = document.getElementById("cantidadClientes");
 if (cantidadClientes) {
-    cantidadClientes.innerText=usuarios.length;
+    cantidadClientes.innerText = usuarios.length;
 }
 
 
@@ -71,8 +71,8 @@ function renderTabla() {
         <td><input type="text" class="form-control" value="${usuario.correo}" disabled></td>
         <td><input type="password" class="form-control" value="${usuario.contrasena}" disabled></td>
         <td>
-          <button class="btn btn-warning btn-sm me-1" onclick="editarUsuario(${usuario.id})">Editar</button>
-          <button class="btn btn-danger btn-sm" onclick="eliminarUsuario(${usuario.id})">Eliminar</button>
+          <button class="btn btn-warning btn-sm me-1" onclick="editarCliente(${index})">Editar</button>
+          <button class="btn btn-danger btn-sm" onclick="eliminarUsuario(${index})">Eliminar</button>
         </td>
       `;
 
@@ -101,22 +101,36 @@ if (form) {
     });
 }
 
-function editarUsuario(id) {
-    const fila = tbody.querySelectorAll("tr")[id - 1];
-    const inputs = fila.querySelectorAll("input");
+function editarCliente(index) {
+    const usuario = usuarios[index];
+    indexEditando = index;
 
-    const estaEditando = inputs[0].disabled === false;
-
-    if (estaEditando) {
-
-        usuarios[id - 1].correo = inputs[0].value;
-        usuarios[id - 1].contrasena = inputs[1].value;
-        inputs.forEach(input => input.disabled = true);
-    } else {
-
-        inputs.forEach(input => input.disabled = false);
-    }
+    document.getElementById("edit-correo").value = usuario.correo;
+    document.getElementById("edit-contrasena").value = usuario.contrasena;
+    
+    const modal = new bootstrap.Modal(document.getElementById("modalEditarCliente"));
+    modal.show();
 }
+
+
+document.getElementById("form-editar-cliente").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const correo = document.getElementById("edit-correo").value.trim();
+    const contrasena = document.getElementById("edit-contrasena").value.trim();
+
+
+    if (!correo || !contrasena) {
+        alert("Por favor completa todos los campos.");
+        return;
+    }
+
+    usuarios[indexEditando] = { correo, contrasena };
+    renderTabla();
+
+    const modal = bootstrap.Modal.getInstance(document.getElementById('modalEditarCliente'));
+    modal.hide();
+});
 
 function eliminarUsuario(id) {
     if (confirm("¿Seguro que deseas eliminar este usuario?")) {
