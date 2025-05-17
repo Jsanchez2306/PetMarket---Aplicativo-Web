@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" href="assets/Imagenes/HuellaPerro.png">
     <link rel="preload" as="image" href="assets/Imagenes/promocion_comida_pedigree.webp">
-    <title>PetMarket Admin</title>
+    <title>PetMarket</title>
 </head>
 
 <body>
@@ -27,564 +27,188 @@
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                    aria-expanded="false" aria-label="Abrir menu de navegacion">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="indexadmin.html">Inicio</a>
+                            <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="productosDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                                data-bs-toggle="dropdown" aria-expanded="false" aria-label="Abrir menu de productos">
                                 Productos
                             </a>
                             <ul class="dropdown-menu dropdownMenu" aria-labelledby="productosDropdown">
-                                <li><a class="dropdown-item" href="#">Juguetes</a></li>
-                                <li><a class="dropdown-item" href="#">Comida</a></li>
+                                <li><a class="dropdown-item" href="juguetes.html">Juguetes</a></li>
+                                <li><a class="dropdown-item" href="comida.html">Comida</a></li>
                                 <li><a class="dropdown-item" href="#">Accesorios</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                                <li><a class="dropdown-item" href="#">Ofertas Especiales</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#nuestrasMarcas">Marcas</a>
                         </li>
                     </ul>
-                    <form class="d-flex mx-auto" role="search" style="max-width: 500px; width: 100%;">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                        <button class="btn btn-outline-danger" type="submit">Buscar</button>
+                    <form class="d-flex mx-auto" role="search" style="width: 40%;">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-primary" type="submit">Buscar</button>
                     </form>
-                    <div class="dropdown ms-3">
-                        <a class="btn-admin btn dropdown-toggle" href="#" role="button" id="adminMenu"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Administrador
+                    <div class="d-flex ms-auto">
+                        <a href="#" class="btn btn-primary me-2" aria-label="Ir al carrito de compras">
+                            <i class="fas fa-shopping-cart"></i>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="adminMenu">
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
-                            <li><a class="dropdown-item" href="panel.html">Panel</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="index.html">Cerrar Sesion</a></li>
-                        </ul>
+                        <button class="btn btn-login me-2" type="button" data-bs-toggle="modal"
+                            data-bs-target="#loginModal" aria-label="Abrir modal de inicio de sesion">Iniciar
+                            Sesion</button>
+                        <button class="btn btn-register" type="button" data-bs-toggle="modal"
+                            data-bs-target="#registerModal" aria-label="Abrir modal de registro">Registrarse</button>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content custom-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"
+                        title="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+
+                        <div class="text-center mb-4">
+                            <img src="assets/Imagenes/PetMarket_Logo.png" alt="Logo" class="img-fluid"
+                                style="max-width: 150px;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electronico</label>
+                            <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                        </div>
+                        <a href="#" class="d-block mt-2 mb-3 text-white">¿Olvidaste tu
+                            contraseña?</a>
+                        <button type="submit" class="btn btn-primary w-100">Iniciar
+                            Sesion</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content custom-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                < <div class="modal-body">
+                    <form>
+
+                        <div class="text-center mb-4">
+                            <img src="assets/Imagenes/PetMarket_Logo.png" alt="Logo" class="img-fluid"
+                                style="max-width: 150px;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electronico</label>
+                            <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                        </div>
+                        <a href="#" class="d-block mt-2 mb-3 text-white">¿Olvidaste tu
+                            contraseña?</a>
+                        <button type="submit" class="btn btn-primary w-100">Iniciar
+                            Sesion</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content custom-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form class="formulario">
+
+                        <div class="login-container p-4 ">
+
+                            <div class="text-center mb-4">
+                                <img src="assets/Imagenes/PetMarket_Logo.png" alt="Logo" class="img-fluid"
+                                    style="max-width: 150px;">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label"><i class="bi bi-envelope-lock"></i>
+                                    Ingrese su
+                                    correo electrónico</label>
+                                <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label"><i class="bi bi-key"></i> Ingrese su
+                                    contraseña</label>
+
+                                <div class="input-group">
+
+                                    <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                                    <span class="input-group-text"><i class="bi bi-eye"></i></span>
+                                </div>
+
+
+                                <label for="password" class="form-label"><i class="bi bi-key"></i> Verifique su
+                                    contraseña</label>
+
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="passwordVerify"
+                                        placeholder=" Verifique Contraseña">
+                                    <span class="input-group-text"><i class="bi bi-eye"></i></span>
+                                </div>
+
+
+                                <div class="d-grid mt-4 justify-content-center">
+                                    <button class="btn btn-success rounded-pill" id="registro">Registrarse</button>
+
+                                </div>
+
+                            </div>
+                            <label> Aceptar Terminos y condiciones</label> <input type="checkbox" name="codiciones"
+                                id="condiciones">
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <main>
-        
-        </div>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="titulo2 px-4">
-                <h2 class="mb-0">Productos Destacados</h2>
-                <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#addProductModal">
-                    Agregar Producto
-                </button>
-            </div>
-            <div class="container my-5">
-                <div class="row" id="productContainer">
-                                        <div class="col-md-4">
-                        <div class="card position-relative">
-                            <img src="assets/Imagenes/camisagato.jpeg" class="card-img-top comedero1"
-                                alt="camisa para gato diferentes tallas "
-                                title="camisa para gato diferentes tallas " loading="lazy">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -20% OFF
-                            </span>
-                            <div class="card-body text-center">
-                                <h5 class="card-title" title="camisa para gato diferentes tallas ">
-                                    Camisa para gato diferentes tallas 
-                                </h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$50.000 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$25.000 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="col-md-4">
-                        <div class="card position-relative">
-                            <img src="assets/Imagenes/cubanaperro.webp" class="card-img-top comedero1"
-                                alt="Cubana para perro diferentes trallas "
-                                title="Cubana para perro diferentes trallas " loading="lazy">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -5% OFF
-                            </span>
-                            <div class="card-body text-center">
-                                <h5 
-                                    class="card-title" title="Cubana para perro diferentes tallas ">
-                                    Cubana para perro diferentes tallas
-                                </h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$60.000 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$40.999 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="col-md-4">
-                        <div class="card position-relative">
-                            <img src="assets/Imagenes/juguete_para_gato_catnip.webp" class="card-img-top comedero1"
-                                alt="Juguete para gato con catnip Bird-ee y Turtl-ee"
-                                title="Juguete para gato con catnip Bird-ee y Turtl-ee" loading="lazy">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -20% OFF
-                            </span>
-                            <div class="card-body text-center">
-                                <h5 class="card-title" title="Juguete Para Gato Bird-ee Y Turtl-ee JW Catnip">Juguete
-                                    Para Gato </h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$12.071 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$9.657 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="col-md-4">
-                        <div class="card position-relative">
-                            <img src="assets/Imagenes/moñogato.jpeg" class="card-img-top comedero1"
-                                alt="Moño para gato ajustable diferentes colores"
-                                title="Moño para gato ajustable diferentes colores" loading="lazy">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -5% OFF
-                            </span>
-                            <div class="card-body text-center">
-                                <h5 class="card-title" title="Juguete Para Gato Bird-ee Y Turtl-ee JW Catnip">
-                                    Moño para gato ajustable diferentes colores
-                                </h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$15.000 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$10.000 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="col-md-4">
-                        <div class="card position-relative">
-                            <img src="assets/Imagenes/moñoparagato2.jpeg" class="card-img-top comedero1"
-                                alt="Moño para gato ajustable diferentes colores"
-                                title="Moño para gato ajustable diferentes colores" loading="lazy">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -25% OFF
-                            </span>
-                            <div class="card-body text-center">
-                                <h5 class="card-title" title="Moño para gato ajustable diferentes colores">
-                                    Moño para gato ajustable diferentes colores
-                                </h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$30.000 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$20.000 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="col-md-4">
-                        <div class="card position-relative">
-                            <img src="assets/Imagenes/ruedahamster.jpeg" class="card-img-top comedero1"
-                                alt="Rueda para hamster diferentes colores"
-                                title="Rueda para hamster diferentes colores" loading="lazy">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -50% OFF
-                            </span>
-                            <div class="card-body text-center">
-                                <h5 class="card-title" title="Rueda para hamster diferentes colores">
-                                    Rueda para hamster diferentes colores
-                                </h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$60.000 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$30.000 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="col-md-4">
-                        <div class="card position-relative">
-                            <img src="assets/Imagenes/casahamster1.jpeg" class="card-img-top comedero1"
-                                alt="Casa tipo cueva hamster"
-                                title="Casa tipo cueva hamster" loading="lazy">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -50% OFF
-                            </span>
-                            <div class="card-body text-center">
-                                <h5 class="card-title" title="Casa tipo cueva hamster">
-                                    Casa tipo cueva hamster
-                                </h5>
-                                    
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$100.000 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$50.000 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="col-md-4">
-                        <div class="card position-relative">
-                            <img src="assets/Imagenes/bañoloro.jpeg" class="card-img-top comedero1"
-                                alt="Mini baño para loro"
-                                title="Mini baño para loro" loading="lazy">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -25% OFF
-                            </span>
-                            <div class="card-body text-center">
-                                <h5 class="card-title" title="Juguete Para Gato Bird-ee Y Turtl-ee JW Catnip">
-                                    Mini baño para loro
-                                </h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$30.000 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$15.000 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="col-md-4">
-                        <div class="card position-relative">
-                            <img src="assets/Imagenes/soporteaves.jpeg" class="card-img-top comedero1"
-                                alt="Soporte aves"
-                                title="Soporte aves" loading="lazy">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -20% OFF
-                            </span>
-                            <div class="card-body text-center">
-                                <h5 class="card-title" title="Soporte aves">
-                                    Soporte aves
-                                </h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$10.000 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$7.000 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card position-relative">
-                            <img src="assets/Imagenes/escaleraaves.png" class="card-img-top comedero1"
-                                alt="Escaleras para aves"
-                                title="Escaleras para aves" loading="lazy">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -20% OFF
-                            </span>
-                            <div class="card-body text-center">
-                                <h5 class="card-title" title="Juguete Para Gato Bird-ee Y Turtl-ee JW Catnip">
-                                    Escaleras para aves
-                                </h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$20.000 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$10.000 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card position-relative">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -20% OFF
-                            </span>
-                            <img src="assets/Imagenes/gafasparaperro.jpeg"
-                                class="card-img-top comedero1"
-                                alt="Gafas de diferentes colores para tu mascota"
-                                title="Gafas de diferentes colores para tu mascota" loading="lazy">
-                            <div class="card-body text-center">
-                                <h5 class="card-title"
-                                    title="Gafas para perro">Gafas de diferentes colores para tu mascota</h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$40.000 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$20.000 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="col-md-4">
-                        <div class="card position-relative">
-                            <img src="assets/Imagenes/Bandanaroja.jpeg" class="card-img-top comedero1"
-                                alt="Bandana roja raza grande y pequeña"
-                                title="Bandana roja raza grande y pequeña" loading="lazy">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -50% OFF
-                            </span>
-                            <div class="card-body text-center">
-                                <h5 class="card-title" title="Juguete Para Gato Bird-ee Y Turtl-ee JW Catnip">
-                                    Bandana roja raza grande y pequeña
-                                </h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$12.071 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$9.657 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="col-md-4">
-                        <div class="card position-relative">
-                            <img src="assets/Imagenes/collardecueroconombre.jpeg" class="card-img-top comedero1"
-                                alt="Collar perro grande y pequeño para marcar"
-                                title="Collar perro grande y pequeño para marcar" loading="lazy">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -50% OFF
-                            </span>
-                            <div class="card-body text-center">
-                                <h5 class="card-title" title="Collar perro grande y pequeño para marcar">
-                                    Collar perro grande y pequeño para marcar.
-                                </h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$100.000 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$50.000 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="col-md-4">
-                        <div class="card position-relative">
-                            <img src="assets/Imagenes/busogucci1.jpeg" class="card-img-top comedero1"
-                                alt="Buso gucci para mascota pequeña exclusivo"
-                                title="Buso gucci para mascota pequeña exclusivo" loading="lazy">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -10% OFF
-                            </span>
-                            <div class="card-body text-center">
-                                <h5 class="card-title" title="Buso gucci para mascota pequeña exclusivo">
-                                    Buso gucci para mascotas pequeñas exclusivo edicion limitada 
-                                </h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$600.000 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$500.000 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card position-relative">
-                            <span
-                                class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
-                                -50% OFF
-                            </span>
-                            <img src="assets/Imagenes/dispensadordecomida.webp" class="card-img-top dispensadordecomida"
-                                alt="dispensado rde comida"
-                                title="dispensado rde comida" loading="lazy">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Dispensador de comida"</h5>
-                                <p class="card-text">
-                                    <span class="text-muted text-decoration-line-through fw-bold">$100.000 COP</span>
-                                    <span class="text-danger fw-bold ms-2">$50.000 COP</span>
-                                </p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-warning btn-sm edit-button">Editar</button>
-                                    <button class="btn btn-danger btn-sm delete-button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteProductModal">Eliminar</button>
-                                </div>
-                                <a href="#" class="btn btn-primary mt-3">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addProductModalLabel">Agregar Producto</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="addProductForm">
-                            <div class="mb-3">
-                                <label for="productSearch" class="form-label">Buscar Producto</label>
-                                <input type="text" class="form-control" id="productSearch"
-                                    placeholder="Escribe el nombre del producto" required>
-                                <ul class="list-group mt-2 d-none" id="productSuggestions"></ul>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Vista Previa de la Imagen</label>
-                                <img id="productImagePreview" src="#" alt="Vista previa de la imagen"
-                                    class="img-fluid d-none">
-                            </div>
-                            <div class="mb-3">
-                                <label for="productName" class="form-label">Nombre del Producto</label>
-                                <input type="text" class="form-control" id="productName" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="productPrice" class="form-label">Precio</label>
-                                <input type="number" class="form-control" id="productPrice" required>
-                            </div>
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" id="applyDiscount">
-                                <label class="form-check-label" for="applyDiscount">¿Descuento?</label>
-                            </div>
-                            <div class="mb-3 d-none" id="discountOptions">
-                                <label for="discountPercentage" class="form-label">Porcentaje de Descuento</label>
-                                <select class="form-select" id="discountPercentage">
-                                    <option value="90">90%</option>
-                                    <option value="80">80%</option>
-                                    <option value="70">70%</option>
-                                    <option value="60">60%</option>
-                                    <option value="50">50%</option>
-                                    <option value="40">40%</option>
-                                    <option value="30">30%</option>
-                                    <option value="20">20%</option>
-                                    <option value="10">10%</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Guardar Producto</button>
-                        </form>
-                    </div>
-                </div>
+        <div class="container my-5">
+            <h2 class="text-center mb-4">Mira que accesorios pa ese peluche🐾</h2>
+            <div class="row" id="accesoriosContainer">
+
+
             </div>
         </div>
-        <div class="modal fade" id="deleteProductModal" tabindex="-1" aria-labelledby="deleteProductModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteProductModalLabel">Confirmar Eliminacion</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                    </div>
-                    <div class="modal-body">
-                        ¿Estas seguro de que deseas eliminar este producto?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-danger" id="confirmDeleteProduct">Eliminar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <section class="nuestras-marcas" id="nuestrasMarcas">
-            <h2 class="titulo3">Nuestras Marcas</h2>
-            <div class="row text-center align-items-center mx-0">
-                <div class="col-md-2 col-4">
-                    <img src="assets/Imagenes/royal_canin.webp" class="img-fluid" alt="Logo de Royal Canin"
-                        title="Logo de Royal Canin" loading="lazy">
-                </div>
-                <div class="col-md-2 col-4">
-                    <img src="assets/Imagenes/dog_n_joy.webp" class="img-fluid" alt="Logo de DognJoy"
-                        title="Logo de DognJoy" loading="lazy">
-                </div>
-                <div class="col-md-2 col-4">
-                    <img src="assets/Imagenes/alimento_de_mascotas_delivey.webp" class="img-fluid"
-                        alt="Logo de Alimento de Mascotas Delivery" title="Logo de Alimento de Mascotas Delivery"
-                        loading="lazy">
-                </div>
-                <div class="col-md-2 col-4">
-                    <img src="assets/Imagenes/pet_bobi.webp" class="img-fluid" alt="Logo de PetBobi"
-                        title="Logo de PetBobi" loading="lazy">
-                </div>
-                <div class="col-md-2 col-4">
-                    <img src="assets/Imagenes/pet_bajio.webp" class="img-fluid" alt="Logo de Pet Bajio"
-                        title="Logo de Pet Bajio" loading="lazy">
-                </div>
-                <div class="col-md-2 col-4">
-                    <img src="assets/Imagenes/pedigree.webp" class="img-fluid" alt="Logo de Pedigree"
-                        title="Logo de Pedigree" loading="lazy">
-                </div>
-            </div>
-        </section>
-        <footer>
+    </main>
+    <footer>
         <div class="container p-4 pb-0">
             <section class="mb-4">
                 <h6>Ponte en Contacto con Nosotros</h6>
@@ -622,6 +246,11 @@
             <a class="text-body" href="https://mdbootstrap.com/"></a>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
+        defer></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/productos.js"></script>
 </body>
 
 </html>

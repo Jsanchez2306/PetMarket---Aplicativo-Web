@@ -105,9 +105,59 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     ];
 
-    let accesorios = [];
+    let accesorios = [
+        {
+            imagen: "assets/Imagenes/Bandanaroja.jpeg",
+            titulo: "Rojo para tu gato",
+            descripcion: "De lo mejor",
+            precio: 15000,
+            stock: 7,
+            categoria: "accesorios"
+        },
+        {
+            imagen: "assets/Imagenes/bañoloro.jpeg",
+            titulo: "Baño",
+            descripcion: "EL mejor baño pa ese pajaro",
+            precio: 15000,
+            stock: 7,
+            categoria: "accesorios"
+        },
+        {
+            imagen: "assets/Imagenes/busogucci1.jpeg",
+            titulo: "Buso",
+            descripcion: "Para que mantenga ese chandoso caliente",
+            precio: 15000,
+            stock: 7,
+            categoria: "accesorios"
+        }
+        ,
+        {
+            imagen: "assets/Imagenes/camisagato.jpeg",
+            titulo: "Camisa",
+            descripcion: "Para tener ese gato bien presentado",
+            precio: 15000,
+            stock: 7,
+            categoria: "accesorios"
+        },
+        {
+            imagen: "assets/Imagenes/pedigree.webp",
+            titulo: "Gafas",
+            descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
+            precio: 15000,
+            stock: 7,
+            categoria: "accesorios"
+        },
+        {
+            imagen: "assets/Imagenes/hoodie_para_mascotas_wawaw.webp",
+            titulo: "Que accesorio",
+            descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
+            precio: 15000,
+            stock: 7,
+            categoria: "accesorios"
+        }
+    ];
 
-    let todosLosProductos = [...productos, ...juguetes];
+    let todosLosProductos = [...productos, ...juguetes, ...accesorios];
 
 
     console.log(todosLosProductos)
@@ -176,6 +226,33 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // accesorios en venta
+
+    let contenedorAccesorios = document.getElementById("accesoriosContainer");
+
+    if (contenedorAccesorios) {
+        accesorios.forEach(accesorio => {
+            const card = document.createElement("div");
+            card.className = "col-md-4 mb-4";
+            card.innerHTML = `
+               <div class="card position-relative">
+                            
+                            <img src="${accesorio.imagen}" class="card-img-top"
+                                alt="Juguete para gato con catnip Bird-ee y Turtl-ee"
+                                title="Juguete para gato con catnip Bird-ee y Turtl-ee" loading="lazy">
+                            <div class="card-body text-center">
+                                <h5 class="card-title" title="">${accesorio.titulo}</h5>
+                                <p class="card-text">
+                                    <span class="text-muted text-decoration-line-through fw-bold">$12.071 COP</span>
+                                    <span class="text-danger fw-bold ms-2">$${accesorio.precio}  COP</span>
+                                </p>
+                                <a href="#" class="btn btn-primary">Comprar</a>
+                            </div>
+                        </div>
+            `;
+            contenedorAccesorios.appendChild(card);
+        });
+    }
 
 
     // administracion todos los productos
@@ -257,7 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             console.log(juguetes, productos, accesorios)
-            
+
             const modal = bootstrap.Modal.getInstance(document.getElementById('editProductModal'));
             modal.hide();
             e.target.reset()
