@@ -19,6 +19,11 @@ let empleados = [
   }
 ];
 
+let cantidadEmpleados=document.getElementById("cantidadEmpleados");
+if (cantidadEmpleados) {
+    cantidadEmpleados.innerText=empleados.length;
+}
+
 function mostrarEmpleados() {
   const tbodyE = document.getElementById("bodyEmpleados");
 
@@ -111,10 +116,10 @@ document.getElementById("form-agregar-empleado").addEventListener("submit", func
   }
 
   empleados.push({ nombre, apellido, cedula, correo, telefono, direccion, password });
-  alert("Empleado registrado exitosamente ✅");
+  
   mostrarEmpleados();
 
-  // Cierra el modal
+  
   const modal = bootstrap.Modal.getInstance(document.getElementById('modalAgregarEmpleado'));
   modal.hide();
 

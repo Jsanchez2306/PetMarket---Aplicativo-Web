@@ -2,50 +2,125 @@ document.addEventListener("DOMContentLoaded", () => {
     // Array compartido de productos
     let productos = [
         {
-            imagen: "assets/Imagenes/pedigree.webp",
+            imagen: "assets/Imagenes/juguete_para_gato_catnip.webp",
             titulo: "Collar Reflectante",
             descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
             precio: 15000,
-            stock:7
+            stock: 7,
+            categoria: "Comida"
         },
         {
             imagen: "assets/Imagenes/pedigree.webp",
             titulo: "Collar Reflectante",
             descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
             precio: 15000,
-            stock:7
+            stock: 7,
+            categoria: "Comida"
         },
         {
-            imagen: "assets/Imagenes/pedigree.webp",
+            imagen: "assets/Imagenes/alimento_de_mascotas_delivey.webp",
             titulo: "Collar Reflectante",
             descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
             precio: 15000,
-            stock:7
+            stock: 7,
+            categoria: "Comida"
         }
         ,
         {
-            imagen: "assets/Imagenes/pedigree.webp",
+            imagen: "assets/Imagenes/promocion_comida_pedigree.webp",
             titulo: "Collar Reflectante",
             descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
             precio: 15000,
-            stock:7
+            stock: 7,
+            categoria: "Comida"
         },
         {
             imagen: "assets/Imagenes/pedigree.webp",
             titulo: "Collar Reflectante",
             descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
             precio: 15000,
-            stock:7
+            stock: 7,
+            categoria: "Comida"
         },
         {
-            imagen: "assets/Imagenes/pedigree.webp",
+            imagen: "assets/Imagenes/hoodie_para_mascotas_wawaw.webp",
             titulo: "Collar Reflectante",
             descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
             precio: 15000,
-            stock:7
+            stock: 7,
+            categoria: "Comida"
         }
     ];
 
+
+    let juguetes = [
+        {
+            imagen: "assets/Imagenes/juguete1.png",
+            titulo: "Collar Reflectante",
+            descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
+            precio: 15000,
+            stock: 7,
+            categoria: "Juguetes"
+        },
+        {
+            imagen: "assets/Imagenes/juguete2.png",
+            titulo: "Collar Reflectante",
+            descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
+            precio: 15000,
+            stock: 7,
+            categoria: "Juguetes"
+        },
+        {
+            imagen: "assets/Imagenes/juguete3.png",
+            titulo: "Collar Reflectante",
+            descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
+            precio: 15000,
+            stock: 7,
+            categoria: "Juguetes"
+        }
+        ,
+        {
+            imagen: "assets/Imagenes/juguete4.png",
+            titulo: "Collar Reflectante",
+            descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
+            precio: 15000,
+            stock: 7,
+            categoria: "Juguetes"
+        },
+        {
+            imagen: "assets/Imagenes/juguete5.png",
+            titulo: "Collar Reflectante",
+            descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
+            precio: 15000,
+            stock: 7,
+            categoria: "Juguetes"
+        },
+        {
+            imagen: "assets/Imagenes/juguete6.png",
+            titulo: "Collar Reflectante",
+            descripcion: "Collar ajustable con tira reflectante para mayor seguridad nocturna.",
+            precio: 15000,
+            stock: 7,
+            categoria: "Juguetes"
+        }
+    ];
+
+    let accesorios = [];
+
+    let todosLosProductos = [...productos, ...juguetes];
+
+
+    console.log(todosLosProductos)
+
+
+    let cantidadProductos = document.getElementById("cantidadProductos")
+    if (cantidadProductos) {
+        cantidadProductos.innerText = todosLosProductos.length;
+    }
+
+
+
+    // comida en venta
 
     const contenedor = document.getElementById("productosContainer");
 
@@ -55,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
             card.className = "col-md-4 mb-4";
             card.innerHTML = `
                 <div class="card h-100 shadow">
-                    <img src="${producto.imagen}" class="card-img-top" alt="${producto.titulo}">
+                    <img src="${producto.imagen}" class="mt-2" alt="${producto.titulo}">
                     <div class="card-body">
                         <h5 class="card-title">${producto.titulo}</h5>
                         <p class="card-text">${producto.descripcion}</p>
@@ -68,13 +143,38 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // juguetes en venta
 
+    const contenedorJuguetes = document.getElementById("juguetesContainer");
+
+    if (contenedorJuguetes) {
+        juguetes.forEach(juguete => {
+            const card = document.createElement("div");
+            card.className = "col-md-4 mb-4";
+            card.innerHTML = `
+                <div class="card h-100 shadow">
+                    <img src="${juguete.imagen}" class="mt-2" alt="${juguete.titulo}">
+                    <div class="card-body">
+                        <h5 class="card-title">${juguete.titulo}</h5>
+                        <p class="card-text">${juguete.descripcion}</p>
+                        <p class="card-text"> Precio: $${juguete.precio}</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            `;
+            contenedorJuguetes.appendChild(card);
+        });
+    }
+
+
+
+    // administracion todos los productos
     const tablaProductos = document.getElementById("tablaProductos");
 
     if (tablaProductos) {
         function renderProductos() {
             tablaProductos.innerHTML = "";
-            productos.forEach((producto, index) => {
+            todosLosProductos.forEach((producto, index) => {
                 const row = document.createElement("tr");
                 row.innerHTML = `
                     <td>${index + 1}</td>
@@ -83,6 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td><input class="form-control" value="${producto.imagen}" disabled></td>
                     <td><input class="form-control" value="${producto.precio}" disabled></td>
                     <td><input class="form-control" value="${producto.stock}" disabled></td>
+                    <td><input class="form-control" value="${producto.categoria}" disabled></td>
                     <td class="text-center">
                         <button class="btn btn-warning btn-sm me-1" onclick="editarProducto(${index})">Editar</button>
                         <button class="btn btn-danger btn-sm" onclick="eliminarProducto(${index})">Eliminar</button>
@@ -92,46 +193,136 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        window.editarProducto = function(index) {
-            const row = tablaProductos.rows[index];
-            const inputs = row.querySelectorAll("input");
-            const boton = row.querySelector("button.btn-warning");
+        window.editarProducto = function (index) {
 
-            if (inputs[0].disabled) {
-                inputs.forEach(input => input.disabled = false);
-                boton.textContent = "Guardar";
-            } else {
-                productos[index].titulo = inputs[0].value;
-                productos[index].descripcion = inputs[1].value;
-                productos[index].imagen = inputs[2].value;
-                inputs.forEach(input => input.disabled = true);
-                boton.textContent = "Editar";
-            }
+            const producto = todosLosProductos[index]
+            indexEditando = index;
+
+            document.getElementById("edit-url").value = producto.imagen
+            document.getElementById("edit-nombre").value = producto.titulo
+            document.getElementById("edit-descripcion").value = producto.descripcion
+            document.getElementById("edit-precio").value = producto.precio
+            document.getElementById("edit-stock").value = producto.stock
+            document.getElementById("edit-categoria").value = producto.categoria
+
+
+
+
+            const modal = new bootstrap.Modal(document.getElementById("editProductModal"));
+            modal.show();
+
         };
 
-        window.eliminarProducto = function(index) {
+
+        document.getElementById("formEditarProducto").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const titulo = document.getElementById("edit-nombre").value.trim();
+            const descripcion = document.getElementById("edit-descripcion").value.trim();
+            const imagen = document.getElementById("edit-url").value.trim();
+            const precio = document.getElementById("edit-precio").value.trim();
+            const stock = document.getElementById("edit-stock").value.trim();
+            const categoria = document.getElementById("edit-categoria").value.trim();
+
+
+            if (!titulo || !descripcion || !imagen || !precio || !stock || !categoria) {
+                alert("Por favor completa todos los campos.");
+                return;
+            }
+
+
+            todosLosProductos[indexEditando] = { imagen, titulo, descripcion, precio, stock, categoria };
+            renderProductos()
+
+            switch (todosLosProductos[indexEditando].categoria.toLocaleLowerCase()) {
+                case "juguetes":
+                    juguetes.push(todosLosProductos[indexEditando]);
+                    break;
+                case "comida":
+                    productos.push(todosLosProductos[indexEditando]);
+                    break;
+                case "accesorios":
+                    accesorios.push(todosLosProductos[indexEditando]);
+                    break;
+            }
+
+            console.log(juguetes, productos, accesorios)
+            
+            const modal = bootstrap.Modal.getInstance(document.getElementById('editProductModal'));
+            modal.hide();
+            e.target.reset()
+
+            alert("producto editado con exito")
+
+        });
+
+
+        window.eliminarProducto = function (index) {
             if (confirm("¿Eliminar este producto?")) {
-                productos.splice(index, 1);
+                todosLosProductos.splice(index, 1);
                 renderProductos();
             }
         };
 
         const form = document.getElementById("formProducto");
         if (form) {
-            form.addEventListener("submit", function (e) {
-                e.preventDefault();
-                const titulo = document.getElementById("tituloNuevo").value.trim();
-                const descripcion = document.getElementById("descripcionNueva").value.trim();
-                const imagen = document.getElementById("imagenNueva").value.trim();
 
-                if (titulo && descripcion && imagen) {
-                    productos.push({ titulo, descripcion, imagen });
-                    renderProductos();
-                    this.reset();
+
+            document.getElementById("añadirProducto").addEventListener("click", function () {
+                const nombre = document.getElementById("nombre").value.trim();
+                const descripcion = document.getElementById("descripcion").value.trim();
+                const imagen = document.getElementById("url").value.trim();
+                const precio = parseFloat(document.getElementById("precio").value);
+                const stock = parseInt(document.getElementById("stock").value);
+                const categoria = document.getElementById("categoria").value;
+
+                if (!nombre || !descripcion || !imagen || isNaN(precio) || isNaN(stock) || !categoria) {
+                    alert("Por favor, completa todos los campos correctamente.");
+                    return;
                 }
+
+                const nuevoProducto = {
+                    titulo: nombre,
+                    descripcion: descripcion,
+                    imagen: imagen,
+                    precio: precio,
+                    stock: stock,
+                    categoria: categoria
+                };
+
+
+                todosLosProductos.push(nuevoProducto);
+                renderProductos();
+
+
+                switch (categoria.toLowerCase()) {
+                    case "juguetes":
+                        juguetes.push(nuevoProducto);
+                        break;
+                    case "comida":
+                        productos.push(nuevoProducto);
+                        break;
+                    case "accesorios":
+                        accesorios.push(nuevoProducto);
+                        break;
+                }
+
+                console.log(juguetes, productos, accesorios)
+
+                alert("Producto guardado exitosamente 😄");
+                document.getElementById("formProducto").reset();
+                console.log("Todos los productos:", todosLosProductos);
             });
+
         }
 
         renderProductos();
     }
+
+
+
+
+
+
+
 });
