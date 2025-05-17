@@ -11,7 +11,7 @@
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-     <link rel="icon" href="assets/Imagenes/HuellaPerro.png">
+    <link rel="icon" href="assets/Imagenes/HuellaPerro.png">
     <title>Panel Administrador</title>
 </head>
 
@@ -34,13 +34,7 @@
                             <a class="nav-link" aria-current="page" href="indexadmin.html">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="aggproductos.html">Productos</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="aggfacturas.html">Facturas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="aggempleados.html">Empleados</a>
                         </li>
                     </ul>
                     <form class="d-flex mx-auto" role="search" style="max-width: 500px; width: 100%;">
@@ -68,35 +62,35 @@
     <main class="container my-5">
         <section id="estadisticas" class="mb-5">
             <h1 class="text-center mb-5">Estadisticas</h1>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card tarjetaProductos mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Productos</h5>
-                                <p class="card-text fs-4">0</p>
-                                <i class="fas fa-box fa-2x"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card tarjetaFacturas mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Facturas</h5>
-                                <p class="card-text fs-4">0</p>
-                                <i class="fas fa-file-invoice fa-2x"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card tarjetaClientes mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Empleados</h5>
-                                <p class="card-text fs-4">0</p>
-                                <i class="fas fa-users fa-2x"></i>
-                            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card tarjetaProductos mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Productos</h5>
+                            <p class="card-text fs-4" id="cantidadProductos">0</p>
+                            <i class="fas fa-box fa-2x"></i>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="card tarjetaFacturas mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Clientes registrados</h5>
+                            <p class="card-text fs-4" id="cantidadClientes">0</p>
+                            <i class="fas fa-file-invoice fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card tarjetaClientes mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Empleados</h5>
+                            <p class="card-text fs-4" id="cantidadEmpleados">0</p>
+                            <i class="fas fa-users fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <section id="gestion">
             <h1 class="text-center mb-4">Gestion</h1>
@@ -107,8 +101,8 @@
                     </a>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <a href="aggfacturas.html" class="btn btn-primary w-100 py-3">
-                        <i class="fas fa-file-invoice"></i> Gestion de Facturas
+                    <a href="gestionClientes.html" class="btn btn-primary w-100 py-3">
+                        <i class="fas fa-file-invoice"></i> Gestion de Clientes
                     </a>
                 </div>
                 <div class="col-md-4 mb-3">
@@ -161,6 +155,9 @@
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
         defer></script>
     <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/productosComida.js"></script>
+    <script src="assets/js/gestionCliente.js"></script>
+    <script src="assets/js/gestionEmpleados.js"></script>
 </body>
 
 </html>

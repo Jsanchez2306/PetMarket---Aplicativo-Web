@@ -29,6 +29,15 @@ header {
     color: #fff
 }
 
+#navbarSupportedContent li a{
+    color: #7cf0c4;
+}
+ 
+.card img{
+    height: 350px;
+   
+    
+}
 
 
 .btn-login,
