@@ -269,11 +269,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td><input class="form-control" value="${producto.descripcion}" disabled></td>
                     <td><input class="form-control" value="${producto.imagen}" disabled></td>
                     <td><input class="form-control" value="${producto.precio}" disabled></td>
-                    <td><input class="form-control" value="${producto.stock}" disabled></td>
+                    <td style="max-width:10px"><input class="form-control" value="${producto.stock}" disabled></td>
                     <td><input class="form-control" value="${producto.categoria}" disabled></td>
                     <td class="text-center">
-                        <button class="btn btn-warning btn-sm me-1" onclick="editarProducto(${index})">Editar</button>
-                        <button class="btn btn-danger btn-sm" onclick="eliminarProducto(${index})">Eliminar</button>
+                        <button class="btn btn-warning btn-sm mt-2" onclick="editarProducto(${index})">Editar</button>
+                        <button class="btn btn-danger btn-sm mt-2" onclick="eliminarProducto(${index})">Eliminar</button>
                     </td>
                 `;
                 tablaProductos.appendChild(row);

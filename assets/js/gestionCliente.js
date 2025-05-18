@@ -70,7 +70,7 @@ function renderTabla() {
         <td>${index + 1}</td>
         <td><input type="text" class="form-control" value="${usuario.correo}" disabled></td>
         <td><input type="password" class="form-control" value="${usuario.contrasena}" disabled></td>
-        <td>
+        <td class=text-center>
           <button class="btn btn-warning btn-sm me-1" onclick="editarCliente(${index})">Editar</button>
           <button class="btn btn-danger btn-sm" onclick="eliminarUsuario(${index})">Eliminar</button>
         </td>

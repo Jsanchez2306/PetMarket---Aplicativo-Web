@@ -37,15 +37,15 @@
                             <a class="nav-link" href="aggproductos.html">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="aggfacturas.html">Facturas</a>
+                            <a class="nav-link" href="gestionClientes.html">Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="aggempleados.html">Empleados</a>
+                            <a class="nav-link" href="panel.html">Dashboard</a>
                         </li>
                     </ul>
                     <form class="d-flex mx-auto" role="search" style="max-width: 500px; width: 100%;">
                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                        <button class="btn btn-outline-danger" type="submit">Buscar</button>
+                        <button class="btn btn-primary" type="submit">Buscar</button>
                     </form>
                     <div class="dropdown ms-3">
                         <a class="btn-admin btn dropdown-toggle" href="#" role="button" id="userMenu"
@@ -67,16 +67,15 @@
     </header>
     <main>
         <div class="container my-5">
-
             <h2>Gestión de Empleados</h2>
-            <!-- <button class="btn btn-success mb-3" onclick="agregarEmpleado()">Agregar Empleado</button> -->
-            <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalAgregarEmpleado">
-                Agregar Empleado
-            </button>
-
+            <div class= "d-flex justify-content-end mb-3">
+                <button class="btn btn-primary mb-3 " data-bs-toggle="modal" data-bs-target="#modalAgregarEmpleado">
+                    Agregar Empleado
+                </button>
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered table-striped" id="tablaEmpleados">
-                    <thead class="table-dark">
+                    <thead class="table-info text-center">
                         <tr>
                             <th>Nombre</th>
                             <th>Apellido</th>
@@ -97,29 +96,30 @@
         </div>
     </main>
 
-   <div class="modal fade" id="modalEditarEmpleado" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <form id="form-editar-empleado" class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalEditarLabel">Editar Empleado</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <input type="text" id="edit-nombre" class="form-control mb-2" placeholder="Nombre" required>
-        <input type="text" id="edit-apellido" class="form-control mb-2" placeholder="Apellido" required>
-        <input type="text" id="edit-cedula" class="form-control mb-2" placeholder="Cédula" required>
-        <input type="email" id="edit-correo" class="form-control mb-2" placeholder="Correo" required>
-        <input type="tel" id="edit-telefono" class="form-control mb-2" placeholder="Teléfono" required>
-        <input type="text" id="edit-direccion" class="form-control mb-2" placeholder="Dirección" required>
-        <input type="password" id="edit-password" class="form-control mb-2" placeholder="Contraseña" required>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-      </div>
-    </form>
-  </div>
-</div>
+    <div class="modal fade" id="modalEditarEmpleado" tabindex="-1" aria-labelledby="modalEditarLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <form id="form-editar-empleado" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarLabel">Editar Empleado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="edit-nombre" class="form-control mb-2" placeholder="Nombre" required>
+                    <input type="text" id="edit-apellido" class="form-control mb-2" placeholder="Apellido" required>
+                    <input type="text" id="edit-cedula" class="form-control mb-2" placeholder="Cédula" required>
+                    <input type="email" id="edit-correo" class="form-control mb-2" placeholder="Correo" required>
+                    <input type="tel" id="edit-telefono" class="form-control mb-2" placeholder="Teléfono" required>
+                    <input type="text" id="edit-direccion" class="form-control mb-2" placeholder="Dirección" required>
+                    <input type="password" id="edit-password" class="form-control mb-2" placeholder="Contraseña"
+                        required>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
 
@@ -141,7 +141,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Guardar</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 </div>
             </form>
         </div>
