@@ -501,3 +501,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     actualizarResumenYBadge();
 });
+
+document.getElementById('btn-pedidos').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('seccion-configuracion').classList.add('d-none');
+    document.getElementById('seccion-pedidos').classList.remove('d-none');
+});
+document.getElementById('btn-configuracion').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('seccion-pedidos').classList.add('d-none');
+    document.getElementById('seccion-configuracion').classList.remove('d-none');
+});
