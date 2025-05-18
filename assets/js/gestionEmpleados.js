@@ -38,9 +38,9 @@ function mostrarEmpleados() {
           <td>${empleado.telefono}</td>
           <td>${empleado.direccion}</td>
           <td>${empleado.password}</td>
-          <td>
-            <button class="btn btn-warning btn-sm" onclick="editarEmpleado(${index})">Editar</button>
-            <button class="btn btn-danger btn-sm" onclick="eliminarEmpleado(${index})">Eliminar</button>
+          <td class="text-center">
+            <button class="btn btn-warning btn-sm mt-2 " onclick="editarEmpleado(${index})">Editar</button>
+            <button class="btn btn-danger btn-sm mt-2" onclick="eliminarEmpleado(${index})">Eliminar</button>
           </td>
         </tr>
       `;

@@ -16,17 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    let titles = document.querySelectorAll('.card-title');
-    titles.forEach(title => {
-        let maxLength = 40;
-        let originalText = title.textContent;
-        if (originalText.length > maxLength) {
-            title.textContent = originalText.slice(0, maxLength) + '...';
-        }
-    });
-});
-
 let productoId = 1;
 let rastreadorProducto = null;
 let tablaProductosCuerpo = document.querySelector('#tablaProducto tbody');
@@ -418,7 +407,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         } else {
             let card = document.createElement("div");
-            card.className = "col-md-4";
+            card.className = "col-md-4 mt-4";
             card.innerHTML = `
                 <div class="card position-relative">
                     ${descuentoAplicado
@@ -512,4 +501,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     actualizarResumenYBadge();
 });
-

@@ -45,7 +45,7 @@
                     </ul>
                     <form class="d-flex mx-auto" role="search" style="max-width: 500px; width: 100%;">
                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                        <button class="btn btn-outline-danger" type="submit">Buscar</button>
+                        <button class="btn btn-primary" type="submit">Buscar</button>
                     </form>
                     <div class="dropdown ms-3">
                         <a class="btn-admin btn dropdown-toggle" href="#" role="button" id="userMenu"
@@ -66,7 +66,7 @@
         </nav>
     </header>
     <main class="container my-5">
-
+            <h1 class="text-center mb-4">Todos los productos</h1>
         <div class="d-flex justify-content-end mb-3">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
                 <i class="fas fa-plus"></i> Nuevo Producto
@@ -181,7 +181,6 @@
 
 
         <div class="table-responsive">
-            <h1 class="text-center mb-4">todos los productos</h1>
             <table class="table table-bordered table-striped align-middle">
                 <thead class="table-info text-center">
                     <tr>
@@ -192,7 +191,7 @@
                         <th>Precio unidad</th>
                         <th>Stock</th>
                         <th>Categoria</th>
-                        <th>Acciones</th>
+                        <th style="width: 150px;">Acciones</th>
                     </tr>
                 </thead>
                 <tbody id="tablaProductos">

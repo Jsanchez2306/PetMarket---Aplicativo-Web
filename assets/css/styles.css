@@ -33,13 +33,6 @@ header {
     color: #7cf0c4;
 }
  
-.card img{
-    height: 350px;
-   
-    
-}
-
-
 .btn-login,
 .btn-register {
     color: #fff;
@@ -189,15 +182,15 @@ main {
 }
 
 .card-img-top {
-    width: 15rem;
-    height: 15rem;
+    width: 230px;
+    height: 230px;
     display: block;
     margin: 0 auto
 }
 
-.card {
-    height: 100%
-}
+/* .card {
+    height: 400px;
+} */
 
 .card-body {
     display: flex;
@@ -271,41 +264,6 @@ iframe {
 
 .accordion-collapse {
     border-top: 1px solid #7cf0dd
-}
-
-.table-custom {
-    width: 100%;
-    margin-bottom: 1rem;
-    color: #212529;
-    border-collapse: collapse
-}
-
-.table-custom th,
-.table-custom td {
-    padding: .75rem;
-    vertical-align: top;
-    border: 1px solid #dee2e6
-}
-
-.table-custom thead {
-    background-color: #2e0417;
-    color: #fff
-}
-
-.table-custom tbody tr:nth-of-type(odd) {
-    background-color: #f07ca1
-}
-
-.table-custom tbody tr:nth-of-type(even) {
-    background-color: #ee5283
-}
-
-.table-custom tbody tr:hover {
-    background-color: #05d071
-}
-
-.table-custom th {
-    text-align: center
 }
 
 .tarjetaClientes,
