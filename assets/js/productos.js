@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = document.createElement("div");
             card.className = "col-md-4 mb-4";
             card.innerHTML = `
-               <div class="card position-relative">
+               <div class="card position-relative mt-3">
                             
                             <img src="${producto.imagen}" class="card-img-top"
                                 alt="Juguete para gato con catnip Bird-ee y Turtl-ee"

@@ -52,7 +52,7 @@ header {
     border-color: #7cf0c0
 }
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
 
     .navbar .btn-login,
     .navbar .btn-register,
@@ -74,7 +74,7 @@ header {
         border: 1px solid #06564f;
         color: #0a0101
     }
-}
+} */
 
 .btn-admin {
     color: #fff;
@@ -296,3 +296,9 @@ footer {
     border: 1px solid #ddd;
     padding: 5px
 }
+
+.card img{
+    width: 100%;
+    object-fit: cover;
+}
+
