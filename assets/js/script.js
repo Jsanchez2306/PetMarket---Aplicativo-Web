@@ -487,53 +487,56 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    function actualizarResumenYBadge() {
-        let productos = document.querySelectorAll('.producto-carrito');
-        let subtotal = 0;
-        let total = 0;
-        let descuento = 0;
+    // Solo ejecutar en carrito.html
+    if (window.location.pathname.endsWith('carrito.html')) {
+        function actualizarResumenYBadge() {
+            let productos = document.querySelectorAll('.producto-carrito');
+            let subtotal = 0;
+            let total = 0;
+            let descuento = 0;
 
-        productos.forEach(prod => {
-            let precios = prod.querySelectorAll('.ms-3.text-end span');
-            if (precios.length === 2) {
-                let original = parseInt(precios[0].textContent.replace(/[^\d]/g, '')) || 0;
-                let rebajado = parseInt(precios[1].textContent.replace(/[^\d]/g, '')) || 0;
-                subtotal += original;
-                total += rebajado;
-                descuento += (original - rebajado);
-            }
-        });
-        let resumenSubtotal = document.getElementById('resumen-subtotal');
-        let resumenDescuento = document.getElementById('resumen-descuento');
-        let resumenTotal = document.getElementById('resumen-total');
-        if (resumenSubtotal) resumenSubtotal.textContent = subtotal > 0 ? `$${subtotal.toLocaleString('es-CO')}` : '$0';
-        if (resumenDescuento) resumenDescuento.textContent = descuento > 0 ? `-$${descuento.toLocaleString('es-CO')}` : '$0';
-        if (resumenTotal) resumenTotal.textContent = total > 0 ? `$${total.toLocaleString('es-CO')}` : '$0';
-        let badge = document.querySelector('.btn-primary .badge');
-        if (badge) {
-            if (productos.length === 0) {
-                badge.style.display = 'none';
-            } else {
-                badge.style.display = '';
-                badge.textContent = productos.length;
-                let hidden = document.createElement('span');
-                hidden.className = "visually-hidden";
-                hidden.textContent = "productos en el carrito";
-                badge.appendChild(hidden);
+            productos.forEach(prod => {
+                let precios = prod.querySelectorAll('.ms-3.text-end span');
+                if (precios.length === 2) {
+                    let original = parseInt(precios[0].textContent.replace(/[^\d]/g, '')) || 0;
+                    let rebajado = parseInt(precios[1].textContent.replace(/[^\d]/g, '')) || 0;
+                    subtotal += original;
+                    total += rebajado;
+                    descuento += (original - rebajado);
+                }
+            });
+            let resumenSubtotal = document.getElementById('resumen-subtotal');
+            let resumenDescuento = document.getElementById('resumen-descuento');
+            let resumenTotal = document.getElementById('resumen-total');
+            if (resumenSubtotal) resumenSubtotal.textContent = subtotal > 0 ? `$${subtotal.toLocaleString('es-CO')}` : '$0';
+            if (resumenDescuento) resumenDescuento.textContent = descuento > 0 ? `-$${descuento.toLocaleString('es-CO')}` : '$0';
+            if (resumenTotal) resumenTotal.textContent = total > 0 ? `$${total.toLocaleString('es-CO')}` : '$0';
+            let badge = document.querySelector('.btn-primary .badge');
+            if (badge) {
+                if (productos.length === 0) {
+                    badge.style.display = 'none';
+                } else {
+                    badge.style.display = '';
+                    badge.textContent = productos.length;
+                    let hidden = document.createElement('span');
+                    hidden.className = "visually-hidden";
+                    hidden.textContent = "productos en el carrito";
+                    badge.appendChild(hidden);
+                }
             }
         }
-    }
-    document.querySelectorAll('.d-flex.align-items-center.mb-4.p-3.rounded-3').forEach(div => {
-        div.classList.add('producto-carrito');
-    });
-    document.querySelectorAll('.btn-eliminar-producto').forEach(btn => {
-        btn.addEventListener('click', function () {
-            let prod = this.closest('.producto-carrito');
-            if (prod) prod.remove();
-            actualizarResumenYBadge();
+        document.querySelectorAll('.d-flex.align-items-center.mb-4.p-3.rounded-3').forEach(div => {
+            div.classList.add('producto-carrito');
         });
-    });
-    actualizarResumenYBadge();
+        document.querySelectorAll('.btn-eliminar-producto').forEach(btn => {
+            btn.addEventListener('click', function () {
+                let prod = this.closest('.producto-carrito');
+                if (prod) prod.remove();
+                actualizarResumenYBadge();
+            });
+        });
+        actualizarResumenYBadge();
+    }
 });
 
 document.getElementById('btn-pedidos').addEventListener('click', function (e) {

@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <span class="text-muted text-decoration-line-through fw-bold">$12.071 COP</span>
                                     <span class="text-danger fw-bold ms-2">$${producto.precio}  COP</span>
                                 </p>
-                                <a href="#" class="btn btn-primary">Comprar</a>
+                                <a href="comprarproducto.html" class="btn btn-primary">Comprar</a>
                             </div>
                         </div>
             `;
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <span class="text-muted text-decoration-line-through fw-bold">$12.071 COP</span>
                                     <span class="text-danger fw-bold ms-2">$${juguete.precio}  COP</span>
                                 </p>
-                                <a href="#" class="btn btn-primary">Comprar</a>
+                                <a href="comprarproducto.html" class="btn btn-primary">Comprar</a>
                             </div>
                         </div>
             `;
@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <span class="text-muted text-decoration-line-through fw-bold">$12.071 COP</span>
                                     <span class="text-danger fw-bold ms-2">$${accesorio.precio}  COP</span>
                                 </p>
-                                <a href="#" class="btn btn-primary">Comprar</a>
+                                <a href="comprarproducto.html" class="btn btn-primary">Comprar</a>
                             </div>
                         </div>
             `;
@@ -406,10 +406,6 @@ document.addEventListener("DOMContentLoaded", () => {
         renderProductos();
     }
 
-
-
-
-
-
-
 });
+
+

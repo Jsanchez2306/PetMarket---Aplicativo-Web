@@ -4,25 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="PetMarket - Tienda online para productos de mascotas. Envios rapidos, productos de calidad y atencion personalizada.">
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data:; script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; frame-src 'self' https://www.youtube.com https://www.google.com;">
+    <meta name="description" content="PetMarket - Nosotros">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" href="assets/Imagenes/HuellaPerro.png">
     <link rel="preload" as="image" href="assets/Imagenes/promocion_comida_pedigree.webp">
-    <script src="assets/js/deleteLogin.js"></script>
-    <title>PetMarket</title>
+                        <script src="assets/js/deleteLogin.js"></script>
+    <title>Sobre Nosotros</title>
+  
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg barra w-100">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="nosotros.html">
                     <img class="logo" src="assets/Imagenes/PetMarket_Logo.png" alt="Logo de PetMarket"
                         title="Logo de PetMarket" loading="lazy">
                 </a>
@@ -48,16 +46,23 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#nuestrasMarcas">Marcas</a>
+                            <a class="nav-link" href="index.html#nuestrasMarcas">Marcas</a>
                         </li>
                     </ul>
                     <form class="d-flex mt-1" role="search" style="width: 60%;">
                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
                         <button class="btn btn-primary" type="submit">Buscar</button>
                     </form>
-                    <div class="d-flex ms-auto mt-1">
-                        <a href="#" class="btn btn-primary me-2" aria-label="Ir al carrito de compras">
+                    <div class="d-flex ms-auto">
+                        <a href="carrito.html" class="btn btn-primary me-2 position-relative"
+                            aria-label="Ir al carrito de compras">
                             <i class="fas fa-shopping-cart"></i>
+                            <span id="carrito-badge"
+                                class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger"
+                                style="font-size:0.75rem;">
+                                2
+                                <span class="visually-hidden">productos en el carrito</span>
+                            </span>
                         </a>
                         <button class="btn btn-login me-2" type="button" data-bs-toggle="modal"
                             data-bs-target="#loginModal" aria-label="Abrir modal de inicio de sesion">Iniciar
@@ -79,11 +84,6 @@
                 </div>
                 <div class="modal-body">
                     <form>
-
-                        <div class="text-center mb-4">
-                            <img src="assets/Imagenes/PetMarket_Logo.png" alt="Logo" class="img-fluid"
-                                style="max-width: 150px;">
-                        </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Correo Electronico</label>
                             <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com"
@@ -97,74 +97,64 @@
                             target="_blank">
                             ¿Olvidaste tu contraseña?
                         </a>
-
-                        <button type="submit" class="btn btn-primary w-100 mt-3">Iniciar
-                            Sesion</button>
+                        <button type="submit" class="btn btn-primary w-100 mt-3">Iniciar Sesion</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content custom-modal">
                 <div class="modal-header">
                     <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
-
                 <div class="modal-body">
                     <form class="formulario">
-
-                        <div class="login-container p-4 ">
-
-                            <div class="text-center mb-4">
-                                <img src="assets/Imagenes/PetMarket_Logo.png" alt="Logo" class="img-fluid"
-                                    style="max-width: 150px;">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="email" class="form-label"><i class="bi bi-envelope-lock"></i>
-                                    Ingrese su
-                                    correo electrónico</label>
-                                <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="password" class="form-label"><i class="bi bi-key"></i> Ingrese su
-                                    contraseña</label>
-
-                                <div class="input-group">
-
-                                    <input type="password" class="form-control" id="password" placeholder="Contraseña">
-                                    <span class="input-group-text"><i class="bi bi-eye"></i></span>
-                                </div>
-
-
-                                <label for="password" class="form-label"><i class="bi bi-key"></i> Verifique su
-                                    contraseña</label>
-
-                                <div class="input-group">
-                                    <input type="password" class="form-control" id="passwordVerify"
-                                        placeholder=" Verifique Contraseña">
-                                    <span class="input-group-text"><i class="bi bi-eye"></i></span>
-                                </div>
-
-
-                                <div class="d-grid mt-4 justify-content-center">
-                                    <button class="btn btn-success rounded-pill" id="registro">Registrarse</button>
-
-                                </div>
-
-                            </div>
-                            <label> Aceptar Terminos y condiciones</label> <input type="checkbox" name="codiciones"
-                                id="condiciones">
+                        <div class="mb-3">
+                            <label for="email" class="form-label"><i class="bi bi-envelope-lock"></i>
+                                Ingrese su correo electrónico</label>
+                            <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
                         </div>
-
+                        <div class="mb-3">
+                            <label for="password" class="form-label"><i class="bi bi-key"></i> Ingrese su
+                                contraseña</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                                <span class="input-group-text"><i class="bi bi-eye"></i></span>
+                            </div>
+                            <label for="passwordVerify" class="form-label"><i class="bi bi-key"></i> Verifique su
+                                contraseña</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="passwordVerify"
+                                    placeholder=" Verifique Contraseña">
+                                <span class="input-group-text"><i class="bi bi-eye"></i></span>
+                            </div>
+                        </div>
+                        <div class="mb-3 text-center">
+                            <span class="mb-2 d-block" style="color: black;">También puedes registrarte con:</span>
+                            <a class="btn text-white btn-floating m-1" style="background-color: #3b5998;"
+                                href="https://www.facebook.com" role="button" aria-label="Ir a Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
+                                style="background-color: #dd4b39;" href="https://mail.google.com" role="button"
+                                aria-label="Ir a Google">
+                                <i class="fab fa-google"></i>
+                                <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
+                                    style="background-color: #0082ca;" href="https://www.linkedin.com" role="button"
+                                    aria-label="Ir a LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="condiciones">
+                            <label class="form-check-label" for="condiciones">Aceptar Términos y condiciones</label>
+                        </div>
+                        <button class="btn btn-primary w-100 mt-3" id="registro">Registrarse</button>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
@@ -172,15 +162,10 @@
         <section id="sobre-nosotros" class="py-5 bg-light">
             <div class="container">
                 <div class="row align-items-center">
-
-                    <!-- Imagen -->
                     <div class="col-md-6 mb-4 mb-md-0 d-flex align-items-center justify-content-center">
                         <img src="assets/Imagenes/dogs.png" alt="Mascotas felices"
                             class="img-fluid rounded shadow w-100 h-auto" id="imgNosotros" style="max-height: 700px;">
                     </div>
-
-
-                    <!-- Texto -->
                     <div class="col-md-6">
                         <h2 class="mb-4 text-primary">Sobre Nosotros</h2>
                         <p class="fs-5">
@@ -194,7 +179,6 @@
                         </p>
                         <a href="comida.html" class="btn btn-outline-primary mt-3">Ver Productos</a>
                     </div>
-
                 </div>
             </div>
         </section>
