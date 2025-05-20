@@ -5,21 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PetMarket - Gestion de Productos.">
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data:; script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; frame-src 'self' https://www.youtube.com https://www.google.com;">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" href="assets/Imagenes/HuellaPerro.png">
-    <title>Clientes</title>
+    <title>Modulo Clientes</title>
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg barra w-100">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="nosotrosadmin.html">
                     <img class="logo" src="assets/Imagenes/PetMarket_Logo.png" alt="Logo de PetMarket"
                         title="Logo de PetMarket" loading="lazy">
                 </a>
@@ -39,7 +37,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="aggempleados.html">Empleados</a>
                         </li>
-                       <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" href="panel.html">Dashboard</a>
                         </li>
                     </ul>
@@ -66,7 +64,7 @@
         </nav>
     </header>
     <main>
-         <div class="container my-5">
+        <div class="container my-5">
 
             <h2 class="text-center mb-4">Gestión de Clientes 🛠️</h2>
 
@@ -82,7 +80,7 @@
                 </div>
             </form>
 
-            
+
             <div class="table-responsive">
                 <table class="table table-bordered table-striped align-middle">
                     <thead class="table-primary text-center">
@@ -96,30 +94,31 @@
                     <tbody id="tablaUsuarios"></tbody>
                 </table>
             </div>
-            
+
         </div>
 
     </main>
 
 
     <div class="modal fade" id="modalEditarCliente" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <form id="form-editar-cliente" class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalEditarLabel">Editar Cliente</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <input type="email" id="edit-correo" class="form-control mb-2" placeholder="Nuevo correo" required>
-        <input type="password" id="edit-contrasena" class="form-control mb-2" placeholder="Nueva contraseña" required>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-      </div>
-    </form>
-  </div>
-</div>
+        <div class="modal-dialog">
+            <form id="form-editar-cliente" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarLabel">Editar Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="email" id="edit-correo" class="form-control mb-2" placeholder="Nuevo correo" required>
+                    <input type="password" id="edit-contrasena" class="form-control mb-2" placeholder="Nueva contraseña"
+                        required>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <footer>
         <div class="container p-4 pb-0">
             <section class="mb-4">

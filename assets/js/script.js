@@ -293,139 +293,139 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         });
-    
-    let asignarEventosTarjetas = (tarjeta) => {
-        let editButton = tarjeta.querySelector(".edit-button");
-        let deleteButton = tarjeta.querySelector(".delete-button");
-        editButton.addEventListener("click", () => {
-            tarjetaAEditar = tarjeta;
-            let titulo = tarjeta.querySelector(".card-title").textContent;
-            let precioTexto = tarjeta.querySelector(".card-text").textContent;
-            let imagen = tarjeta.querySelector(".card-img-top").src;
-            nombreProductoInput.value = titulo;
-            precioProductoInput.value = precioTexto.replace(/[^0-9.]/g, "").trim();
-            imagenVista.src = imagen;
-            imagenVista.classList.remove("d-none");
-            let badge = tarjeta.querySelector(".badge");
-            if (badge) {
-                aplicarDescuento.checked = true;
-                opcionesDescuento.classList.remove("d-none");
-                document.getElementById("discountPercentage").value = badge.textContent.replace(/[^0-9]/g, "");
-            } else {
-                aplicarDescuento.checked = false;
-                opcionesDescuento.classList.add("d-none");
+
+        let asignarEventosTarjetas = (tarjeta) => {
+            let editButton = tarjeta.querySelector(".edit-button");
+            let deleteButton = tarjeta.querySelector(".delete-button");
+            editButton.addEventListener("click", () => {
+                tarjetaAEditar = tarjeta;
+                let titulo = tarjeta.querySelector(".card-title").textContent;
+                let precioTexto = tarjeta.querySelector(".card-text").textContent;
+                let imagen = tarjeta.querySelector(".card-img-top").src;
+                nombreProductoInput.value = titulo;
+                precioProductoInput.value = precioTexto.replace(/[^0-9.]/g, "").trim();
+                imagenVista.src = imagen;
+                imagenVista.classList.remove("d-none");
+                let badge = tarjeta.querySelector(".badge");
+                if (badge) {
+                    aplicarDescuento.checked = true;
+                    opcionesDescuento.classList.remove("d-none");
+                    document.getElementById("discountPercentage").value = badge.textContent.replace(/[^0-9]/g, "");
+                } else {
+                    aplicarDescuento.checked = false;
+                    opcionesDescuento.classList.add("d-none");
+                }
+                let modalEditar = bootstrap.Modal.getOrCreateInstance(document.getElementById("addProductModal"));
+                modalEditar.show();
+            });
+            deleteButton.addEventListener("click", () => {
+                tarjetaAEliminar = tarjeta;
+                posicionTarjetaEliminada = Array.from(contenedorProductos.children).indexOf(tarjeta);
+            });
+        };
+        let tarjetasIniciales = document.querySelectorAll("#productContainer .col-md-4");
+        tarjetasIniciales.forEach((tarjeta) => asignarEventosTarjetas(tarjeta));
+        confirmarEliminar.addEventListener("click", () => {
+            if (tarjetaAEliminar) {
+                tarjetaAEliminar.remove();
+                tarjetaAEliminar = null;
+                let modal = bootstrap.Modal.getInstance(modalEliminar);
+                if (modal) {
+                    modal.hide();
+                }
             }
-            let modalEditar = bootstrap.Modal.getOrCreateInstance(document.getElementById("addProductModal"));
-            modalEditar.show();
         });
-        deleteButton.addEventListener("click", () => {
-            tarjetaAEliminar = tarjeta;
-            posicionTarjetaEliminada = Array.from(contenedorProductos.children).indexOf(tarjeta);
-        });
-    };
-    let tarjetasIniciales = document.querySelectorAll("#productContainer .col-md-4");
-    tarjetasIniciales.forEach((tarjeta) => asignarEventosTarjetas(tarjeta));
-    confirmarEliminar.addEventListener("click", () => {
-        if (tarjetaAEliminar) {
-            tarjetaAEliminar.remove();
-            tarjetaAEliminar = null;
-            let modal = bootstrap.Modal.getInstance(modalEliminar);
-            if (modal) {
-                modal.hide();
-            }
-        }
-    });
-    buscarProducto.addEventListener("input", () => {
-        let query = buscarProducto.value.toLowerCase();
-        sugerenciaProductos.innerHTML = "";
-        if (query) {
-            let matches = productosAdmin.filter(product =>
-                product.name.toLowerCase().includes(query)
-            );
-            if (matches.length > 0) {
-                sugerenciaProductos.classList.remove("d-none");
-                matches.forEach(product => {
-                    let suggestionItem = document.createElement("li");
-                    suggestionItem.className = "list-group-item list-group-item-action";
-                    suggestionItem.textContent = product.name;
-                    suggestionItem.dataset.image = product.image;
-                    suggestionItem.addEventListener("click", () => {
-                        buscarProducto.value = product.name;
-                        imagenVista.src = product.image;
-                        imagenVista.classList.remove("d-none");
-                        sugerenciaProductos.classList.add("d-none");
+        buscarProducto.addEventListener("input", () => {
+            let query = buscarProducto.value.toLowerCase();
+            sugerenciaProductos.innerHTML = "";
+            if (query) {
+                let matches = productosAdmin.filter(product =>
+                    product.name.toLowerCase().includes(query)
+                );
+                if (matches.length > 0) {
+                    sugerenciaProductos.classList.remove("d-none");
+                    matches.forEach(product => {
+                        let suggestionItem = document.createElement("li");
+                        suggestionItem.className = "list-group-item list-group-item-action";
+                        suggestionItem.textContent = product.name;
+                        suggestionItem.dataset.image = product.image;
+                        suggestionItem.addEventListener("click", () => {
+                            buscarProducto.value = product.name;
+                            imagenVista.src = product.image;
+                            imagenVista.classList.remove("d-none");
+                            sugerenciaProductos.classList.add("d-none");
+                        });
+                        sugerenciaProductos.appendChild(suggestionItem);
                     });
-                    sugerenciaProductos.appendChild(suggestionItem);
-                });
+                } else {
+                    sugerenciaProductos.classList.add("d-none");
+                }
             } else {
                 sugerenciaProductos.classList.add("d-none");
             }
-        } else {
-            sugerenciaProductos.classList.add("d-none");
-        }
-    });
-    aplicarDescuento.addEventListener("change", () => {
-        opcionesDescuento.classList.toggle("d-none", !aplicarDescuento.checked);
-    });
-    document.querySelector('[data-bs-target="#addProductModal"]').addEventListener("click", () => {
-        tarjetaAEditar = null;
-        agregarProductoAdmin.reset();
-        imagenVista.classList.add("d-none");
-        opcionesDescuento.classList.add("d-none");
-    });
-    agregarProductoAdmin.addEventListener("submit", (event) => {
-        event.preventDefault();
-        let nombreProductoAdmin = nombreProductoInput.value;
-        let imagenProductoAdmin = imagenVista.src;
-        let precioProductoAdmin = parseFloat(precioProductoInput.value).toFixed(2);
-        let descuentoAplicado = aplicarDescuento.checked;
-        let porcentajeDescuento = descuentoAplicado
-            ? parseInt(document.getElementById("discountPercentage").value)
-            : 0;
-        let precioConDescuento = descuentoAplicado
-            ? (precioProductoAdmin * (1 - porcentajeDescuento / 100)).toFixed(2)
-            : precioProductoAdmin;
-        if (tarjetaAEditar) {
-            tarjetaAEditar.querySelector(".card-title").textContent = nombreProductoAdmin;
-            tarjetaAEditar.querySelector(".card-img-top").src = imagenProductoAdmin;
-            tarjetaAEditar.querySelector(".card-text").innerHTML = descuentoAplicado
-                ? `<span class="text-muted text-decoration-line-through fw-bold">$${precioProductoAdmin} COP</span>
+        });
+        aplicarDescuento.addEventListener("change", () => {
+            opcionesDescuento.classList.toggle("d-none", !aplicarDescuento.checked);
+        });
+        document.querySelector('[data-bs-target="#addProductModal"]').addEventListener("click", () => {
+            tarjetaAEditar = null;
+            agregarProductoAdmin.reset();
+            imagenVista.classList.add("d-none");
+            opcionesDescuento.classList.add("d-none");
+        });
+        agregarProductoAdmin.addEventListener("submit", (event) => {
+            event.preventDefault();
+            let nombreProductoAdmin = nombreProductoInput.value;
+            let imagenProductoAdmin = imagenVista.src;
+            let precioProductoAdmin = parseFloat(precioProductoInput.value).toFixed(2);
+            let descuentoAplicado = aplicarDescuento.checked;
+            let porcentajeDescuento = descuentoAplicado
+                ? parseInt(document.getElementById("discountPercentage").value)
+                : 0;
+            let precioConDescuento = descuentoAplicado
+                ? (precioProductoAdmin * (1 - porcentajeDescuento / 100)).toFixed(2)
+                : precioProductoAdmin;
+            if (tarjetaAEditar) {
+                tarjetaAEditar.querySelector(".card-title").textContent = nombreProductoAdmin;
+                tarjetaAEditar.querySelector(".card-img-top").src = imagenProductoAdmin;
+                tarjetaAEditar.querySelector(".card-text").innerHTML = descuentoAplicado
+                    ? `<span class="text-muted text-decoration-line-through fw-bold">$${precioProductoAdmin} COP</span>
                    <span class="text-danger fw-bold ms-2">$${precioConDescuento} COP</span>`
-                : `<span class="text-dark fw-bold">$${precioProductoAdmin} COP</span>`;
-            let badge = tarjetaAEditar.querySelector(".badge");
-            if (descuentoAplicado) {
-                if (!badge) {
-                    let newBadge = document.createElement("span");
-                    newBadge.className = "badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow";
-                    newBadge.textContent = `-${porcentajeDescuento}% OFF`;
-                    tarjetaAEditar.querySelector(".card").prepend(newBadge);
-                } else {
-                    badge.textContent = `-${porcentajeDescuento}% OFF`;
+                    : `<span class="text-dark fw-bold">$${precioProductoAdmin} COP</span>`;
+                let badge = tarjetaAEditar.querySelector(".badge");
+                if (descuentoAplicado) {
+                    if (!badge) {
+                        let newBadge = document.createElement("span");
+                        newBadge.className = "badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow";
+                        newBadge.textContent = `-${porcentajeDescuento}% OFF`;
+                        tarjetaAEditar.querySelector(".card").prepend(newBadge);
+                    } else {
+                        badge.textContent = `-${porcentajeDescuento}% OFF`;
+                    }
+                } else if (badge) {
+                    badge.remove();
                 }
-            } else if (badge) {
-                badge.remove();
-            }
-        } else {
-            let card = document.createElement("div");
-            card.className = "col-md-4 mt-4";
-            card.innerHTML = `
+            } else {
+                let card = document.createElement("div");
+                card.className = "col-md-4 mt-4";
+                card.innerHTML = `
                 <div class="card position-relative">
                     ${descuentoAplicado
-                    ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
+                        ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2 px-3 py-2 rounded-pill shadow">
                                 -${porcentajeDescuento}% OFF
                             </span>`
-                    : ""
-                }
+                        : ""
+                    }
                     <img src="${imagenProductoAdmin}" class="card-img-top" 
                         alt="${nombreProductoAdmin}" title="${nombreProductoAdmin}" loading="lazy">
                     <div class="card-body text-center">
                         <h5 class="card-title">${nombreProductoAdmin}</h5>
                         <p class="card-text">
                             ${descuentoAplicado
-                    ? `<span class="text-muted text-decoration-line-through fw-bold">$${precioProductoAdmin} COP</span>
+                        ? `<span class="text-muted text-decoration-line-through fw-bold">$${precioProductoAdmin} COP</span>
                                        <span class="text-danger fw-bold ms-2">$${precioConDescuento} COP</span>`
-                    : `<span class="text-dark fw-bold">$${precioProductoAdmin} COP</span>`
-                }
+                        : `<span class="text-dark fw-bold">$${precioProductoAdmin} COP</span>`
+                    }
                         </p>
                         <div class="d-flex justify-content-center gap-2">
                             <button class="btn btn-warning btn-sm edit-button">Editar</button>
@@ -434,80 +434,83 @@ document.addEventListener("DOMContentLoaded", () => {
                         <a href="#" class="btn btn-primary mt-3">Comprar</a>
                     </div>
                 </div>`;
-            if (posicionTarjetaEliminada !== null) {
-                contenedorProductos.insertBefore(card, contenedorProductos.children[posicionTarjetaEliminada]);
-                posicionTarjetaEliminada = null;
-            } else {
-                contenedorProductos.appendChild(card);
-            }
+                if (posicionTarjetaEliminada !== null) {
+                    contenedorProductos.insertBefore(card, contenedorProductos.children[posicionTarjetaEliminada]);
+                    posicionTarjetaEliminada = null;
+                } else {
+                    contenedorProductos.appendChild(card);
+                }
 
-            asignarEventosTarjetas(card);
-        }
-        agregarProductoAdmin.reset();
-        imagenVista.classList.add("d-none");
-        opcionesDescuento.classList.add("d-none");
-        let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById("addProductModal"));
-        modal.hide();
-    });
-}
+                asignarEventosTarjetas(card);
+            }
+            agregarProductoAdmin.reset();
+            imagenVista.classList.add("d-none");
+            opcionesDescuento.classList.add("d-none");
+            let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById("addProductModal"));
+            modal.hide();
+        });
+    }
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    function actualizarResumenYBadge() {
-        let productos = document.querySelectorAll('.producto-carrito');
-        let subtotal = 0;
-        let total = 0;
-        let descuento = 0;
+    // Solo ejecutar en carrito.html
+    if (window.location.pathname.endsWith('carrito.html')) {
+        function actualizarResumenYBadge() {
+            let productos = document.querySelectorAll('.producto-carrito');
+            let subtotal = 0;
+            let total = 0;
+            let descuento = 0;
 
-        productos.forEach(prod => {
-            let precios = prod.querySelectorAll('.ms-3.text-end span');
-            if (precios.length === 2) {
-                let original = parseInt(precios[0].textContent.replace(/[^\d]/g, '')) || 0;
-                let rebajado = parseInt(precios[1].textContent.replace(/[^\d]/g, '')) || 0;
-                subtotal += original;
-                total += rebajado;
-                descuento += (original - rebajado);
-            }
-        });
-        let resumenSubtotal = document.getElementById('resumen-subtotal');
-        let resumenDescuento = document.getElementById('resumen-descuento');
-        let resumenTotal = document.getElementById('resumen-total');
-        if (resumenSubtotal) resumenSubtotal.textContent = subtotal > 0 ? `$${subtotal.toLocaleString('es-CO')}` : '$0';
-        if (resumenDescuento) resumenDescuento.textContent = descuento > 0 ? `-$${descuento.toLocaleString('es-CO')}` : '$0';
-        if (resumenTotal) resumenTotal.textContent = total > 0 ? `$${total.toLocaleString('es-CO')}` : '$0';
-        let badge = document.querySelector('.btn-primary .badge');
-        if (badge) {
-            if (productos.length === 0) {
-                badge.style.display = 'none';
-            } else {
-                badge.style.display = '';
-                badge.textContent = productos.length;
-                let hidden = document.createElement('span');
-                hidden.className = "visually-hidden";
-                hidden.textContent = "productos en el carrito";
-                badge.appendChild(hidden);
+            productos.forEach(prod => {
+                let precios = prod.querySelectorAll('.ms-3.text-end span');
+                if (precios.length === 2) {
+                    let original = parseInt(precios[0].textContent.replace(/[^\d]/g, '')) || 0;
+                    let rebajado = parseInt(precios[1].textContent.replace(/[^\d]/g, '')) || 0;
+                    subtotal += original;
+                    total += rebajado;
+                    descuento += (original - rebajado);
+                }
+            });
+            let resumenSubtotal = document.getElementById('resumen-subtotal');
+            let resumenDescuento = document.getElementById('resumen-descuento');
+            let resumenTotal = document.getElementById('resumen-total');
+            if (resumenSubtotal) resumenSubtotal.textContent = subtotal > 0 ? `$${subtotal.toLocaleString('es-CO')}` : '$0';
+            if (resumenDescuento) resumenDescuento.textContent = descuento > 0 ? `-$${descuento.toLocaleString('es-CO')}` : '$0';
+            if (resumenTotal) resumenTotal.textContent = total > 0 ? `$${total.toLocaleString('es-CO')}` : '$0';
+            let badge = document.querySelector('.btn-primary .badge');
+            if (badge) {
+                if (productos.length === 0) {
+                    badge.style.display = 'none';
+                } else {
+                    badge.style.display = '';
+                    badge.textContent = productos.length;
+                    let hidden = document.createElement('span');
+                    hidden.className = "visually-hidden";
+                    hidden.textContent = "productos en el carrito";
+                    badge.appendChild(hidden);
+                }
             }
         }
-    }
-    document.querySelectorAll('.d-flex.align-items-center.mb-4.p-3.rounded-3').forEach(div => {
-        div.classList.add('producto-carrito');
-    });
-    document.querySelectorAll('.btn-eliminar-producto').forEach(btn => {
-        btn.addEventListener('click', function () {
-            let prod = this.closest('.producto-carrito');
-            if (prod) prod.remove();
-            actualizarResumenYBadge();
+        document.querySelectorAll('.d-flex.align-items-center.mb-4.p-3.rounded-3').forEach(div => {
+            div.classList.add('producto-carrito');
         });
-    });
-    actualizarResumenYBadge();
+        document.querySelectorAll('.btn-eliminar-producto').forEach(btn => {
+            btn.addEventListener('click', function () {
+                let prod = this.closest('.producto-carrito');
+                if (prod) prod.remove();
+                actualizarResumenYBadge();
+            });
+        });
+        actualizarResumenYBadge();
+    }
 });
 
-document.getElementById('btn-pedidos').addEventListener('click', function(e) {
+document.getElementById('btn-pedidos').addEventListener('click', function (e) {
     e.preventDefault();
     document.getElementById('seccion-configuracion').classList.add('d-none');
     document.getElementById('seccion-pedidos').classList.remove('d-none');
 });
-document.getElementById('btn-configuracion').addEventListener('click', function(e) {
+document.getElementById('btn-configuracion').addEventListener('click', function (e) {
     e.preventDefault();
     document.getElementById('seccion-pedidos').classList.add('d-none');
     document.getElementById('seccion-configuracion').classList.remove('d-none');
