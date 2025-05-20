@@ -1,20 +1,54 @@
+// document.addEventListener("DOMContentLoaded", function () {
+//     let loginForm = document.querySelector("#loginModal form");
+//     if (loginForm) {
+//         let adminEmail = "admin@petmarket.com";
+//         let adminPassword = "admin123";
+//         loginForm.addEventListener("submit", function (event) {
+//             event.preventDefault();
+//             let email = document.querySelector("#email").value;
+//             let password = document.querySelector("#password").value;
+//             if (email === adminEmail && password === adminPassword) {
+//                 window.location.href = "panel.html";
+//                 console.log("logueado")
+//                 localStorage.setItem("logueado", "true");
+//             } else {
+//                 alert("Correo o contraseña incorrectos. Intentalo de nuevo.");
+//                 document.getElementById("email").value = ""
+//                 document.getElementById("password").value = ""
+//             }
+//         });
+//     }
+// });
+
+
 document.addEventListener("DOMContentLoaded", function () {
     let loginForm = document.querySelector("#loginModal form");
     if (loginForm) {
         let adminEmail = "admin@petmarket.com";
         let adminPassword = "admin123";
+        
         loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
-            let email = document.querySelector("#email").value;
-            let password = document.querySelector("#password").value;
+
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
             if (email === adminEmail && password === adminPassword) {
+                localStorage.setItem("logueado", "true");
                 window.location.href = "panel.html";
             } else {
-                alert("Correo o contraseña incorrectos. Intentalo de nuevo.");
+                alert("Correo o contraseña incorrectos. Intenta de nuevo.");
+                document.getElementById("email").value = "";
+                document.getElementById("password").value = "";
             }
         });
     }
 });
+
+function cerrarSesion() {
+    localStorage.removeItem("logueado");
+    window.location.href = "index.html";
+}
 
 let productoId = 1;
 let rastreadorProducto = null;
