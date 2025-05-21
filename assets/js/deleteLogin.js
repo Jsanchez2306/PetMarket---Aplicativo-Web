@@ -2,4 +2,5 @@
 //     localStorage.removeItem("logueado");
 // }
 
-localStorage.clear()
+    localStorage.clear()
+
