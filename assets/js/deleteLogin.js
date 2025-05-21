@@ -1,3 +1,5 @@
-if (localStorage.getItem("logueado") === "true") {
-    localStorage.removeItem("logueado");
-}
+// if (localStorage.getItem("logueado") === "true") {
+//     localStorage.removeItem("logueado");
+// }
+
+localStorage.clear()
