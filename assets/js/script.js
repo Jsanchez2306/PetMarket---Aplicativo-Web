@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function cerrarSesion() {
-    localStorage.removeItem("logueado");
+    localStorage.clear();
     window.location.href = "index.html";
 }
 
