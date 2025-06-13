@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (email === adminEmail && password === adminPassword) {
                 localStorage.setItem("logueado", "true");
-                window.location.href = "panel.html";
+                window.location.href = "panel";
             } else {
                 alert("Correo o contraseña incorrectos. Intenta de nuevo.");
                 document.getElementById("email").value = "";
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function cerrarSesion() {
     localStorage.clear();
-    window.location.href = "index.html";
+    window.location.href = "/";
 }
 
 let productoId = 1;
